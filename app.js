@@ -1,23 +1,25 @@
 const myLibrary = []; //library array
 
-function Book(name, author, pages) { //constructor 
-    this.name = name
+function Book(title, author, pages) { //constructor 
+    this.title = title
     this.author = author
     this.pages = pages
     this.read = read
 }
 
-
-
 function addBookToLibrary() { //add book function
-    //let user = prompt(new Book);
-   
-  
-    myLibrary.push(new Book(user)); 
+    let title = document.querySelector("#title").value;
+    let author = document.querySelector("#author").value;
+    let pages = document.querySelector("#pages").value;
+    let read = document.querySelector("#read").checked;
+    let newBook = new Book(title, author, pages, read);
+    console.log(newBook);
 }
 
-addBookToLibrary()
-console.log(myLibrary); 
-
+let newBookBtn = document.querySelector("#addNew")
+newBookBtn.addEventListener("click", function() {
+    let newBookForm = document.querySelector("#new-book-form")
+    newBookForm.style.display = "block";
+})
 
 
