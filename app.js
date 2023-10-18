@@ -7,18 +7,7 @@ function Book(title, author, pages, read) { //constructor
     this.read = read
 }
 
-//add book function
-function addBookToLibrary() { 
-    let title = document.querySelector("#title").value;
-    let author = document.querySelector("#author").value;
-    let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").checked;
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    render();
-}
-
-//add book button reveals form
+//add book button reveals modal
 let newBookBtn = document.querySelector("#addNew")
 newBookBtn.addEventListener("click", function() {
     let newBookForm = document.querySelector("#new-book-form")
@@ -30,6 +19,17 @@ document.querySelector("#new-book-form").addEventListener("submit", function(eve
     event.preventDefault();
     addBookToLibrary();
 })
+
+//add book function
+function addBookToLibrary() { 
+    let title = document.querySelector("#title").value;
+    let author = document.querySelector("#author").value;
+    let pages = document.querySelector("#pages").value;
+    let read = document.querySelector("#read").checked;
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    render();
+}
 
 //render function
 function render() {
@@ -45,9 +45,17 @@ function render() {
     </div>
     <div class="book-body">
     <p>${book.pages} pages</p>
-    <p class="read-status">${book.read ? "Read" : "Not Read"}</p></div>`
+    <p class="read-status">${book.read ? "Read" : "Not Read"}</p>
+    <button class="remove-Btn" onclick="removeBook(${i})">Remove</button>
+    </div>`
     libraryEl.appendChild(bookEl); //main library div appends bookEl
     }
+}
+
+//remove function
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    render();
 }
 
 
