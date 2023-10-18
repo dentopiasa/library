@@ -38,7 +38,14 @@ function render() {
     for (let i = 0; i < myLibrary.length; i++) { //loops through myLibrary array
     let book = myLibrary[i]; //saves individual myLibrary book  
     let bookEl = document.createElement("div"); //creates div element inside main library div 
-    bookEl.innerHTML = `<p>${book.title}</p>`; //populates div element with book elements
+    bookEl.innerHTML = //populates div element with book elements
+    `<div class="book-header">
+    <h3>${book.title}</h3>
+    <h5>from ${book.author}</h5>
+    </div>
+    <div class="book-body">
+    <p>${book.pages} pages</p>
+    <p class="read-status">${book.read ? "Read" : "Not Read"}</p></div>`
     libraryEl.appendChild(bookEl); //main library div appends bookEl
     }
 }
