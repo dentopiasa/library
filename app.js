@@ -31,6 +31,16 @@ function addBookToLibrary() {
     render();
 }
 
+//read toggle
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 //render function
 function render() {
     let libraryEl = document.querySelector("#library"); //selects library div
@@ -47,6 +57,7 @@ function render() {
     <p>${book.pages} pages</p>
     <p class="read-status">${book.read ? "Read" : "Not Read"}</p>
     <button class="remove-Btn" onclick="removeBook(${i})">Remove</button>
+    <button class="toggle-read-Btn" onclick="toggleRead(${i})">Toggle</button>
     </div>`
     libraryEl.appendChild(bookEl); //main library div appends bookEl
     }
