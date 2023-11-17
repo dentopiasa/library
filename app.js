@@ -8,20 +8,17 @@ class Book {
         this.read = read
     }
 }
-
 //add book button reveals modal
 let newBookBtn = document.querySelector("#addNew")
 newBookBtn.addEventListener("click", function() {
     let newBookForm = document.querySelector("#new-book-form")
     newBookForm.style.display = "block";
 })
-
 //submit button triggers addBookLibrary function
 document.querySelector("#new-book-form").addEventListener("submit", function(event){
     event.preventDefault();
     addBookToLibrary();
 })
-
 //add book function
 function addBookToLibrary() { 
     let title = document.querySelector("#title").value;
@@ -32,17 +29,14 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     render();
 }
-
 //read toggle
 Book.prototype.toggleRead = function() {
     this.read = !this.read;
 }
-
 function toggleRead(index) {
     myLibrary[index].toggleRead();
     render();
 }
-
 //render function
 function render() {
     let libraryEl = document.querySelector("#library"); //selects library div
@@ -64,11 +58,11 @@ function render() {
     libraryEl.appendChild(bookEl); //main library div appends bookEl
     }
 }
-
 //remove function
 function removeBook(index) {
     myLibrary.splice(index, 1);
     render();
 }
 
+//change this
 
